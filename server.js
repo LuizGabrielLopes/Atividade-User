@@ -12,4 +12,6 @@ app.listen(PORT, () => {
 });
 
 const usersRoutes = require("./src/routes/usersRoutes");
+const postRoutes = require("./src/routes/postRoutes")
 app.use("/api", usersRoutes);
+app.use("/api", postRoutes);
