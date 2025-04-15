@@ -10,7 +10,7 @@ CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     description TEXT,
-    image VARCHAR(255),
+    image VARCHAR(255)
 );
 
 INSERT INTO users (name, email) VALUES 
