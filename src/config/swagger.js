@@ -1,4 +1,3 @@
-// swagger.js
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -11,13 +10,13 @@ const options = {
       description: 'Documentação da API para gerenciar usuários e posts',
     },
   },
-  apis: ['./routes/*.js'], // <- Caminho das suas rotas
+  apis: ['./src/routes/*.js'],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
 
 const setupSwagger = (app) => {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
 
 module.exports = setupSwagger;
