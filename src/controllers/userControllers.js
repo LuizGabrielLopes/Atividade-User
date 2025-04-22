@@ -2,7 +2,7 @@ const UserModel = require('../models/userModel');
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = await UserModel.getUsuarios();
+        const users = await UserModel.getUsers();
         res.json(users);
     } catch (error) {
         res.status(500).json({ error: 'Erro ao buscar usuários.' });
@@ -12,7 +12,7 @@ const getAllUsers = async (req, res) => {
 const getUserById = async (req, res) => {
     const { id } = req.params;
     try {
-        const user = await UserModel.getUsuariosById(id);
+        const user = await UserModel.getUserById(id);
         if (!user) {
             return res.status(404).json({ error: 'Usuário não encontrado.' });
         }
@@ -24,7 +24,7 @@ const getUserById = async (req, res) => {
 
 const deleteUser = async (req, res) => {
     try {
-        const result = await UserModel.deleteUsuarios(req.params.id);
+        const result = await UserModel.deleteUser(req.params.id);
         if (result.error) {
             return res.status(404).json(result);
         }
@@ -38,7 +38,7 @@ const deleteUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     try {
-        const user = await UserModel.updateUsuarios(req.params.id, req.body);
+        const user = await UserModel.updateUser(req.params.id, req.body);
         if (!user) {
             return res.status(404).json({ message: "usuário não encontrado." });
         }
@@ -52,7 +52,7 @@ const createUser = async (req, res) => {
     try {
         const { name, email, password } = req.body;
         const photo = req.file ? req.file.filename : null;
-        const user = await UserModel.createUsuarios(name, email, password, photo);
+        const user = await UserModel.createUser(name, email, password, photo);
         res.status(201).json(user);
     } catch (error) {
         res.status(500).json({ message: "Erro ao criar o usuário." });

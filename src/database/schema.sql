@@ -13,7 +13,7 @@ INSERT INTO users (name, email) VALUES
     ('Felipe Santos', 'felipe@email.com');
     
 
-CREATE TABLE posts (
+CREATE TABLE post (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE posts (
     user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 
-INSERT INTO posts (title, content, photo, user_id) VALUES
+INSERT INTO post (title, content, photo, user_id) VALUES
     ('Paisagem', 'Uma bela paisagem no fim de tarde', 'https://cursinhoparamedicina.com.br/wp-content/uploads/2022/10/Paisagem-1.jpg', 1),
     ('Foto', 'Um grande dia de pesca', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY8jOK3zoEGMzdZUgUaiYlPuDbfMuZNHStZg&s', 2),
     ('Post 3', 'Descrição do post 3', 'https://example.com/image3.jpg', 3),
