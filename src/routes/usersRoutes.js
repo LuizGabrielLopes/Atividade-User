@@ -17,7 +17,7 @@ router.use(apiKeyMiddleware);
  * @swagger
  * /api/users:
  *   get:
- *     summary: Lista todos os users
+ *     summary: Lista todos os usuários
  *     tags: [Users]
  *     responses:
  *       200:
